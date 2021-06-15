@@ -10,17 +10,17 @@ CODENAME=$(/bin/bash "${VAGRANT_CORE_FOLDER}/shell/os-detect.sh" CODENAME)
 
 # deep_merge gem required by hiera
 if [[ ! -f /.puphpet-stuff/install-deep_merge-03122015 ]]; then
-    gem install deep_merge  --no-rdoc
+    gem install deep_merge   
     touch /.puphpet-stuff/install-deep_merge-03122015
 fi
 
 if [[ ! -f /.puphpet-stuff/install-activesupport-03132015 ]]; then
-    gem install activesupport   --no-rdoc
+    gem install activesupport    
     touch /.puphpet-stuff/install-activesupport-03132015
 fi
 
 if [[ ! -f /.puphpet-stuff/install-vine-03202015 ]]; then
-    gem install vine   --no-rdoc
+    gem install vine   
     touch /.puphpet-stuff/install-vine-03202015
 fi
 
@@ -37,11 +37,11 @@ elif [[ "${OS}" == 'centos' ]]; then
 fi
 
 echo 'Installing Puppet requirements'
-gem install haml hiera facter json ruby-augeas deep_merge   --no-rdoc
+gem install haml hiera facter json ruby-augeas deep_merge   
 echo 'Finished installing Puppet requirements'
 
 echo 'Installing Puppet 3.4.3'
-gem install puppet --version 3.4.3   --no-rdoc
+gem install puppet --version 3.4.3   
 echo 'Finished installing Puppet 3.4.3'
 
 cat >/usr/bin/puppet << 'EOL'
