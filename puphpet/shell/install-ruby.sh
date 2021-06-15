@@ -17,12 +17,15 @@ rm -rf /usr/bin/ruby /usr/bin/gem /usr/bin/rvm /usr/local/rvm
 echo 'Installing RVM and Ruby 1.9.3'
 
 if [ "${OS}" == 'debian' ] || [ "${OS}" == 'ubuntu' ]; then
-    gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D39DC0E3
+  #  gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D39DC0E3
+  gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 \
+7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 elif [[ "${OS}" == 'centos' ]]; then
     gpg2 --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D39DC0E3
 fi
+curl -sSL https://get.rvm.io | bash -s stable --ruby
 
-curl -sSL https://get.rvm.io | bash -s stable --quiet-curl --ruby=ruby-1.9.3-p551
+#curl -sSL https://get.rvm.io | bash -s stable --quiet-curl --ruby=ruby-1.9.3-p551
 
 source /usr/local/rvm/scripts/rvm
 
